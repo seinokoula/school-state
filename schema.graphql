@@ -1,0 +1,9 @@
+type CertificateIssued @entity(immutable: true) {
+  id: Bytes!
+  student: Bytes! # address
+  data: String! # string
+  grade: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

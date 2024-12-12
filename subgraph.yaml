@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: YourContract
+    network: sepolia
+    source:
+      address: "0xE414c6b098A719c85B18cCDe1ba53169817C5E1d"
+      abi: YourContract
+      startBlock: 7263355
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - CertificateIssued
+      abis:
+        - name: YourContract
+          file: ./abis/YourContract.json
+      eventHandlers:
+        - event: CertificateIssued(indexed address,string,string)
+          handler: handleCertificateIssued
+      file: ./src/your-contract.ts
